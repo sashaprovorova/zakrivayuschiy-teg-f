@@ -1,1 +1,22 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+:root {
+  /* COLORS */
+  /* --bg-color: #000028;
+  --text-color: #f1b2ce;
+  --accent-color: #ff0070; */
+  --stroke-color: #fff;
+
+  /* FONTS */
+  --main-font: Inter;
+  --accent-font: PressStart2P;
+
+  --text-size: 18px;
+  --line-height: 21px;
+
+  --text-weight: normal;
+  --heading-weight: bold;
+
+  --content-min-width: 375px;
+  --content-max-width: 696px;
+  --content-preferred-width: 90vw; 
+}
