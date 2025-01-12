@@ -1,34 +1,43 @@
-/* Здесь вы напишете основную часть стилей страницы.
-
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
-✦ like-icon — для svg-иконки анимированного сердца
-✦ card__like-button — для кнопки Like рядом с иконкой
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
-✦ button__text — для обозначения текстового элемента внутри кнопки
-
-*/
+/* GENERAL SET UP */
 
 .page {
+  font-family: var(--main-font), sans-serif;
+  font-size: var(--text-size);
+  background-color: #e7e7e7;
+  background-image: var(--background-gradient);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-size: var(--text-size);
-  font-family: var(--main-font), sans-serif;
   font-variation-settings: "'wght' var(--text-weight)";
 }
 
 .format {
-  width: clamp(var(--content-min-width), var(--content-preferred-width), var(--content-max-width));
+  background-color: #fff;
+  inline-size: clamp(var(--content-min-width), var(--content-preferred-width), var(--content-max-width));
 }
 
+/* HEADER */
+
 .header {
-  margin: 100px auto;
-  text-align: center; 
+  margin: 100px auto; 
   padding: clamp(7.5rem, 6.9159rem + 2.4922vw, 8rem) clamp(0.875rem, -6.9007rem + 33.1763vw, 7.531rem);
-  font-family: var(--accent-font), sans-serif;
   outline: 2px solid black;
+  font-family: var(--accent-font), sans-serif;
+  text-align: center;
 }
+
+.header__logo {
+  font-size: clamp(3.0625rem, 1.8943rem + 4.9844vw, 4.0625rem);
+}
+
+.header__title {
+  font-size: clamp(0.875rem, 0.2179rem + 2.8037vw, 1.4375rem);
+}
+
+/* EACH CARD */
 
 .sprint {
   margin: auto;
@@ -45,35 +54,55 @@
   font-size: inherit;
 }
 
-.header__logo {
-  font-size: clamp(3.0625rem, 1.8943rem + 4.9844vw, 4.0625rem);
-}
-
-.header__title {
-  font-size: clamp(0.875rem, 0.2179rem + 2.8037vw, 1.4375rem);
-}
+/* VISUAL PART WITH IMAGES */
 
 .image {
   position: relative;
   display: flex;
 }
 
-.image__bg:first-child {
-  mix-blend-mode: hard-light;
+/* FILTERS */
+
+.contrast {
+  filter: contrast(20%);
 }
 
-.image__bg:second-child {
-  mix-blend-mode: saturation;
+.blur {
+  filter: blur(0.5rem);
+}
+
+.grayscale {
+  filter: grayscale(0.8);
+}
+
+.hue-rotate {
+  filter: hue-rotate(90deg);
+}
+
+.invert {
+  filter: invert(100%);
+}
+
+.sepia {
+  filter: sepia(80%);
+}
+
+.shadow {
+  filter: drop-shadow(16px 16px 20px blue);
+}
+
+.multiple {
+  filter: brightness(1.4) contrast(120%) hue-rotate(120deg);
 }
 
 .image__label {
   position: absolute;
   top: 25px;
   right: 13px;
+  opacity: 0.5;
   font-family: var(--accent-font), sans-serif;
   font-size: 14px;
   line-height: auto;
-  opacity: 0.5;
   text-shadow: 
     1px 1px 0 var(--stroke-color),
     -1px 1px 0 var(--stroke-color),
@@ -83,58 +112,77 @@
 
 @supports (-webkit-text-stroke: 1px var(--stroke-color)) or (text-stroke: 1px var(--stroke-color)) {
   .image__label {
+    text-shadow: none;
     -webkit-text-stroke: 1px var(--stroke-color);
-    text-stroke: 1px var(--stroke-color);
-    text-shadow: none; 
+    text-stroke: 1px var(--stroke-color); 
   }
 }
 
+/* DESCRIPTION PART  */
+
 .text:not(:last-child) {
   display: flex;
-  padding: 25px 25px 0;
   flex-direction: column;
   gap: 27px;
-  line-height: var(--line-height);
+  padding: 25px 25px 0;
   font-size: inherit;
+  line-height: var(--line-height);
 }
 
 .card {
   display: flex;
-  flex-direction: row;
-  gap: 12px;
-  padding: 25px; 
+  flex-direction: row; 
   justify-content: right;
+  gap: 12px;
+  padding: 25px;
 }
 
 .card__like-button {
+  border: 2px solid var(--base-color);
   padding: 12.5px 37px;
-  outline: 1px solid #000;
   font-family: var(--accent-font), sans-serif;
-  font-size: 14px;
+  font-size: 14px; 
 }
+
+.card__like-button:focus-visible {
+  box-shadow: 2px 2px 0px var(--base-color); 
+}
+
 .card__icon-button {
   padding-inline: 9px 6px;
 }
 
+.card__icon-button:focus-visible {
+  border: 2px solid var(--base-color);
+  padding: 12.5px 10px;
+}
+
 .like-icon {
   object-fit: contain;
+  inline-size: 39px; 
+  block-size: 36px; 
 }
+
+/* FOOTER */
 
 .footer {
-  text-align: center; 
-  /* padding: 15px 20px; */
+  margin: 52px auto 100px; 
   font-family: var(--accent-font), sans-serif;
-  margin: 52px auto 100px;
+  text-align: center;
+  background-color: transparent;
 }
 
-.footer__button {
+.footer__button { 
+  position: relative;
   display: flex;
   display: row;
   align-items: center;
-  padding: 18.5px 21px;
-  outline: 2px solid black;
   gap: 8px;
   margin: auto;
+  border: 2px solid black;
+  padding: 18.5px 21px;
+  overflow: hidden;
+  background-color: #fff;
 }
 
 .footer__title {
@@ -142,15 +190,17 @@
   line-height: .9;
 }
 
+/* POP UP */
+
 .dialog[open] {
-  width: 353px;
-  height: 191spx;
-  display: flex;
-  flex-direction: column;
-  padding: 30px;
-  gap: 30px;
   position: fixed;
   inset: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 30px;
+  inline-size: 353px;
+  block-size: 191spx;
 }
 
 .dialog::backdrop {
@@ -167,15 +217,21 @@
 }
 
 .dialog__button {
-  outline: 1px solid #000;
   padding: 12.5px 132.5px;
+  outline: 1px solid var(--base-color);
   line-height: .9;
 }
 
-@media (width <= 375px) {
-  /* here */
+/* MOBILE VERSION */
 
-.footer__button {
-  flex-direction: column;
-}
+@media (width <= 375px) {
+
+  .format {
+    inline-size: clamp(var(--content-min-width), var(--content-max-width), var(--content-max-width));
+  }
+
+  .footer__button {
+    flex-direction: column;
+  }
+
 }
