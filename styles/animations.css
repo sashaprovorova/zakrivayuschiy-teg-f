@@ -36,7 +36,8 @@
   transform: scaleX(1); 
 } 
 
-.button__text {
+.button__text, 
+.footer__title {
   position: relative;
   color: var(--animated-color);
   mix-blend-mode: difference;
@@ -44,8 +45,6 @@
 
 .floppy-icon {
   position: relative;
-  width: 21px; 
-  height: 21px;
   fill: var(--animated-color);
   mix-blend-mode: difference;
 }

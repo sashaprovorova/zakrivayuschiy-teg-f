@@ -23,7 +23,7 @@
   --content-min-width: 375px;
   --content-max-width: 696px;
   --content-preferred-width: 90vw; 
-  --content-max-width: 100%; 
+  --content-max-mobile-width: 100%; 
 
   /* VISUALS */
   
