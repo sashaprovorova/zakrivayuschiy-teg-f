@@ -1,17 +1,16 @@
 :root {
-
   /* COLORS */
 
   --stroke-color: #fff;
   --base-color: #000;
   --animated-color: #fff;
   --contour-color: black;
-  --sparks-color: #FF0000;
+  --sparks-color: #f00;
 
   /* TEXT FORMATTERS */
 
-  --main-font: Inter;
-  --accent-font: PressStart2P;
+  --main-font: inter;
+  --accent-font: pressstart2p;
 
   --text-size: 18px;
   --line-height: 21px;
@@ -22,13 +21,24 @@
   /* CONTENT FORMATTERS */
   --content-min-width: 375px;
   --content-max-width: 696px;
-  --content-preferred-width: 90vw; 
-  --content-max-mobile-width: 100%; 
+  --content-preferred-width: 90vw;
+  --content-max-mobile-width: 100%;
 
   /* VISUALS */
-  
-  --background-gradient: 
-    repeating-linear-gradient(to right, #d3d3d3 0px, #d3d3d3 2px, transparent 2px, transparent 4px),
-    repeating-linear-gradient(to bottom, #d3d3d3 0px, #d3d3d3 2px, transparent 2px, transparent 4px),
+
+  --background-gradient: repeating-linear-gradient(
+      to right,
+      #d3d3d3 0,
+      #d3d3d3 2px,
+      transparent 2px,
+      transparent 4px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      #d3d3d3 0,
+      #d3d3d3 2px,
+      transparent 2px,
+      transparent 4px
+    ),
     linear-gradient(to bottom, #e7e7e7 0.01%, #e7e7e7, #1a1a1a, #1a1a1a);
 }
