@@ -525,7 +525,7 @@
         <button
           class="footer__button transformation"
           type="button"
-          onclick="window['dialog-id'].show()"
+          onclick="window['dialog-id'].showModal()"
           aria-controls="dialog-id"
         >
           <svg class="floppy-icon" aria-hidden="true">
@@ -539,7 +539,9 @@
             <svg width="40" height="40">
               <use href="./svg/floppy.svg#floppy" />
             </svg>
-            <p>Вставьте дискету, чтобы продолжить</p>
+            <p class="dialog__instruction">
+              Вставьте дискету, чтобы продолжить
+            </p>
           </div>
           <button
             type="button"

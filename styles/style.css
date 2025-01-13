@@ -220,24 +220,31 @@
   flex-direction: column;
   gap: 30px;
   padding: 30px;
-  inline-size: 353px;
-  block-size: 191spx;
+  line-height: 1.5;
+  max-inline-size: 353px;
+}
+
+.dialog[open] .floppy-icon {
+  inline-size: 39px;
+  block-size: 39px;
 }
 
 .dialog::backdrop {
-  background-color: rgb(0 0 0 / 0.3);
-  backdrop-filter: blur(7px);
+  background-color: rgb(0 0 0 / 0.75);
 }
 
-.dialog__info {
-  display: flex;
-  flex-direction: row;
+.dialog[open] .dialog__info {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  align-items: center;
+  justify-content: right;
   gap: 20px;
   font-size: 14px;
   line-height: 1.5;
+  text-align: start;
 }
 
-.dialog__button {
+.dialog[open] .dialog__button {
   padding: 12.5px 132.5px;
   outline: 1px solid var(--base-color);
   line-height: 0.9;
