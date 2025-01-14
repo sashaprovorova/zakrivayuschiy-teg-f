@@ -3,7 +3,7 @@
 .page {
   font-family: var(--main-font), sans-serif;
   font-size: var(--text-size);
-  background-color: #e7e7e7;
+  background-color: var(--bg-color);
   background-image: var(--background-gradient);
   background-repeat: no-repeat;
   background-position: center;
@@ -11,7 +11,7 @@
   background-attachment: fixed;
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-variation-settings: "'wght' var(--text-weight)";
+  font-variation-settings: 'wght' var(--text-weight);
 }
 
 .format {
@@ -33,7 +33,7 @@
   padding: clamp(7.5rem, 6.9159rem + 2.4922vw, 8rem)
     clamp(0.875rem, -6.9007rem + 33.1763vw, 7.531rem);
   border: 2px solid var(--base-color);
-  font-family: var(--accent-font), sans-serif;
+  font-family: var(--accent-font), fantasy;
   text-align: center;
 }
 
@@ -47,7 +47,7 @@
   text-transform: uppercase;
 }
 
-/* EACH CARD */
+/* EACH REACTION BUTTON */
 
 .sprint {
   margin: auto;
@@ -56,7 +56,7 @@
 }
 
 .sprint:not(:last-of-type) {
-  margin-bottom: 50px;
+  margin-block-end: 50px;
 }
 
 .sprint__header {
@@ -65,13 +65,19 @@
   font-size: inherit;
 }
 
+.image__bg {
+  max-inline-size: 696px;
+  max-block-size: 696px;
+  aspect-ratio: 1/1;
+}
+
 /* VISUAL PART WITH IMAGES */
 
 .image {
   position: relative;
   display: flex;
-  border-top: 3px solid var(--base-color);
-  border-bottom: 3px solid var(--base-color);
+  border-top: 2px solid var(--base-color);
+  border-bottom: 2px solid var(--base-color);
 }
 
 /* FILTERS */
@@ -110,12 +116,12 @@
 
 .image__label {
   position: absolute;
+  mix-blend-mode: difference;
   top: 20px;
   right: 11px;
   opacity: 0.5;
   font-family: var(--accent-font), sans-serif;
   font-size: 14px;
-  line-height: auto;
   text-shadow:
     1px 1px 0 var(--stroke-color),
     -1px 1px 0 var(--stroke-color),
@@ -143,7 +149,7 @@
   font-size: inherit;
 }
 
-.card {
+.reaction-buttons {
   display: flex;
   flex-direction: row;
   justify-content: right;
@@ -157,6 +163,7 @@
   font-family: var(--accent-font), sans-serif;
   font-size: 14px;
   line-height: 0.9;
+  transition: transform 0.5s ease-in-out;
 }
 
 .card__like-button:focus-visible {
@@ -165,11 +172,12 @@
 
 .card__icon-button {
   padding-inline: 9px 6px;
+  transition: fill 0.3s ease-in-out;
 }
 
 .card__icon-button:focus-visible {
   border: 2px solid var(--base-color);
-  padding: 12.5px 10px;
+  /* padding: 12.5px 10px; */
 }
 
 .like-icon {
@@ -178,9 +186,9 @@
   block-size: 36px;
 }
 
-/* FOOTER */
+/* SAVE BUTTON */
 
-.footer {
+.save {
   display: flex;
   justify-content: center;
   margin: 52px auto 100px;
@@ -189,7 +197,7 @@
   background-color: transparent;
 }
 
-.footer__button {
+.save__button {
   position: relative;
   display: flex;
   flex-direction: row;
@@ -199,14 +207,42 @@
   padding: 12px 21px;
   overflow: hidden;
   background-color: #fff;
-}
-
-.footer__title {
   font-size: 14px;
   line-height: 0.9;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* SLIDE TO THE RIGHT TRANSFORMATION */
+
+.transformation {
+  position: relative;
+  overflow: hidden;
+}
+
+.transformation::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--base-color);
+  transition: transform 0.5s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.transformation:hover::before {
+  transform: scaleX(1);
+}
+
+.button__text {
+  position: relative;
+  color: var(--animated-color);
+  mix-blend-mode: difference;
 }
 
 .floppy-icon {
+  position: relative;
+  fill: var(--animated-color);
+  mix-blend-mode: difference;
   inline-size: 21px;
   block-size: 21px;
 }
@@ -242,12 +278,15 @@
   font-size: 14px;
   line-height: 1.5;
   text-align: start;
+  text-transform: uppercase;
 }
 
 .dialog[open] .dialog__button {
   padding: 12.5px 132.5px;
   outline: 1px solid var(--base-color);
   line-height: 0.9;
+  text-transform: uppercase;
+  font-size: 14px;
 }
 
 /* MOBILE VERSION */
@@ -262,7 +301,7 @@
     );
   }
 
-  .footer__button {
+  .save__button {
     flex-direction: column;
     padding: 18.5px 21px;
   }
@@ -270,5 +309,11 @@
   .floppy-icon {
     inline-size: 28px;
     block-size: 28px;
+  }
+
+  .image__bg {
+    max-block-size: 375px;
+    max-inline-size: 375px;
+    aspect-ratio: 1/1;
   }
 }
