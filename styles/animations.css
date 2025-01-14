@@ -50,6 +50,11 @@
   transition-delay: 0.03s;
 }
 
+.contour {
+  fill: var(--contour-color);
+  transition: fill 0.1s linear;
+}
+
 /* HOVER EFFECT */
 
 .like-icon:hover .core {
@@ -96,9 +101,4 @@
 
 .like-icon.is-liked .sparks {
   animation: heart-sparks 0.3s ease-in 0.3s;
-}
-
-.contour {
-  fill: var(--contour-color);
-  transition: fill 0.1s linear;
 }
